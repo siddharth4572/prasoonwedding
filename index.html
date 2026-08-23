@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Prasoon Weds Juhi</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            background: #f4ede1;
+        }
+
+        #introOverlay {
+            background: #f4ede1;
+        }
+    </style>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preload" as="image" href="envlope.png">
+    <link rel="preload" as="video" href="intro.mp4" type="video/mp4">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js" defer></script>
+    <script src="app.js?v=png-assets-1" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cinzel:wght@600&family=Montserrat:wght@600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&family=Alex+Brush&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Envelope Intro Overlay -->
+    <div id="introOverlay" class="intro-overlay">
+
+        <div id="envelopeButton" class="envelope-button">
+            <img src="envlope.png" alt="Open Invitation" class="envelope-image">
+            <p class="tap-text">Tap to Open Invitation</p>
+        </div>
+
+        <button id="musicButton" class="music-button" type="button" hidden>
+            Tap to enable music
+        </button>
+
+        <video
+            id="introVideo"
+            class="intro-video hidden"
+            playsinline
+            webkit-playsinline="true"
+            preload="auto"
+            poster="envlope.png"
+        >
+            <source src="intro.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <audio id="weddingMusic" loop preload="auto">
+        <source src="wedding_music.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- First Image -->
+    <div class="section section-1">
+        <img src="1.png" alt="Wedding invitation" class="responsive-image">
+    </div>
+
+
+    <!-- Special Reveal -->
+    <div class="section section-2">
+
+        <h2>A Special Reveal</h2>
+
+        <div class="floral-decorations" aria-hidden="true">
+            <span class="flower flower-1">&#127801;</span>
+            <span class="flower flower-2">&#127803;</span>
+            <span class="flower flower-3">&#127800;</span>
+            <span class="flower flower-4">&#127801;</span>
+            <span class="flower flower-5">&#127803;</span>
+            <span class="flower flower-6">&#127807;</span>
+            <span class="flower flower-7">&#127800;</span>
+        </div>
+
+        <div class="scratch-row">
+
+            <div class="scratch-card" data-card="date">
+                <div class="scratch-card-face">
+                    <div class="scratch-card-inset scratch-card-inset-1"></div>
+                    <div class="scratch-card-inset scratch-card-inset-2"></div>
+                    <span class="scratch-card-label">DATE</span>
+                    <h4 class="scratch-card-value">14</h4>
+                    <span class="scratch-card-subvalue">Wednesday</span>
+                </div>
+                <canvas class="scratch-card-canvas" aria-label="Scratch to reveal the date"></canvas>
+            </div>
+
+            <div class="scratch-card" data-card="month">
+                <div class="scratch-card-face">
+                    <div class="scratch-card-inset scratch-card-inset-1"></div>
+                    <div class="scratch-card-inset scratch-card-inset-2"></div>
+                    <span class="scratch-card-label">MONTH</span>
+                    <h4 class="scratch-card-value">OCT</h4>
+                    <span class="scratch-card-subvalue">October</span>
+                </div>
+                <canvas class="scratch-card-canvas" aria-label="Scratch to reveal the month"></canvas>
+            </div>
+
+            <div class="scratch-card" data-card="year">
+                <div class="scratch-card-face">
+                    <div class="scratch-card-inset scratch-card-inset-1"></div>
+                    <div class="scratch-card-inset scratch-card-inset-2"></div>
+                    <span class="scratch-card-label">YEAR</span>
+                    <h4 class="scratch-card-value">2026</h4>
+                    <span class="scratch-card-subvalue">Anno Domini</span>
+                </div>
+                <canvas class="scratch-card-canvas" aria-label="Scratch to reveal the year"></canvas>
+            </div>
+
+        </div>
+
+        <div class="scratch-status">
+            <p class="scratch-instructions">
+                &#10024; Scratch each of the three gold cards above to reveal the Date, Month, and Year!
+            </p>
+
+            <div class="scratch-success" hidden>
+                <h3>&#127881; Date Unlocked: Wednesday, Oct 14, 2026</h3>
+                <p>At Eight O'clock In The Evening &bull; Ceremony Venue Details Below</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Wedding Countdown -->
+    <div class="section section-countdown">
+        <div class="countdown-card">
+
+            <p class="countdown-eyebrow">Counting Down To The Vows</p>
+
+            <div class="countdown-grid">
+
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="cdDays">00</div>
+                    <span class="countdown-label">Days</span>
+                </div>
+
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="cdHours">00</div>
+                    <span class="countdown-label">Hours</span>
+                </div>
+
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="cdMinutes">00</div>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="cdSeconds">00</div>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+
+            </div>
+
+            <div class="countdown-divider"></div>
+        </div>
+    </div>
+
+
+    <!-- Main Wedding Invitation -->
+    <div class="section section-3">
+
+        <div class="invitation-text" aria-label="Wedding invitation text">
+
+            <div class="ganesha-text" aria-label="Ganesh invocation">
+
+                <div class="ganesha-line ganesha-line-main">
+                    || श्री गणेशाय नमः ||
+                </div>
+
+                <div class="ganesha-line">
+                    वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।
+                </div>
+
+                <div class="ganesha-line">
+                    निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ।।
+                </div>
+
+            </div>
+
+
+            <div class="invitation-quote">
+                Every beautiful beginning deserves to be celebrated<br>
+                with the ones who matter most
+            </div>
+
+
+            <div class="invitation-couple">
+                MRS. SUMAN &amp; DR. HARISH CHANDRA SHARMA
+            </div>
+
+
+            <div class="invitation-subtext">
+                joyfully invite you to celebrate the bond of their beloved son
+            </div>
+
+
+            <div class="invitation-names">
+
+                <div class="invitation-name invitation-name-first">
+                   Prasoon
+                </div>
+
+                <div class="with-text">
+                    with
+                </div>
+
+                <div class="invitation-name invitation-name-second">
+                    Juhi
+                </div>
+
+            </div>
+
+
+            <div class="invitation-parentage">
+                D/O MRS. RUPALI &amp; MR. HARISH KATYAL
+            </div>
+
+
+            <div class="invitation-title">
+                FOR THEIR WEDDING<br>
+                CEREMONY
+            </div>
+
+        </div>
+
+        <img src="2.png" alt="Wedding detail" class="responsive-image">
+
+    </div>
+
+
+    <!-- Map -->
+    <div class="section section-4">
+
+        <div class="map-card">
+
+            <img
+                src="3.1.png?v=html-overlay-1"
+                alt="Wedding ceremony details"
+                class="responsive-image"
+            >
+
+            <div class="venue-text" aria-label="Wedding ceremony details">
+                <h2 class="venue-title">WEDDING<br>CEREMONY</h2>
+                <span class="venue-rule venue-rule-top" aria-hidden="true"></span>
+                <p class="venue-date">Wednesday, 14th of October, 2026</p>
+                <p class="venue-time">9:00 PM ONWARDS</p>
+                <span class="venue-rule venue-rule-middle" aria-hidden="true"></span>
+                <h3 class="venue-name">SAATHI WEDDING POINT</h3>
+                <p class="venue-address">RING RD, CHAKDALANWALA,<br>VIVEKA NAND GRAM-PHASE-I,<br>DEHRADUN</p>
+                <p class="venue-note">Bharat will assemble at Nehru Gram Post Office,<br>Jogiwala at 7:00 PM.</p>
+                <p class="venue-map-label"><span aria-hidden="true">&#128205;</span> Open in Maps</p>
+            </div>
+
+            <a
+                class="map-link"
+                href="https://www.google.com/maps/place/Saathi+Wedding+Point/@30.2885626,78.0677403,17z/data=!3m1!4b1!4m6!3m5!1s0x390929494c9461b5:0x240773139de18162!8m2!3d30.2885626!4d78.0677403!16s%2Fg%2F11j8h4qbxq!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcyOS4wIKXMDSoASAFQAw%3D%3D"
+                target="_self"
+                aria-label="Open Saathi Wedding Point in Google Maps"
+            ></a>
+
+        </div>
+    </div>
+    <div class="section section-4">
+
+        <div class="map-card">
+
+            <img
+                src="3.png?v=html-overlay-1"
+                alt="Wedding ceremony details"
+                class="responsive-image"
+            >
+
+            <div class="venue-text" aria-label="Wedding ceremony details">
+                <h2 class="venue-title">RECEPTION<br>CEREMONY</h2>
+                <span class="venue-rule venue-rule-top" aria-hidden="true"></span>
+                <p class="venue-date">Wednesday, 21st of October, 2026</p>
+                <p class="venue-time">8 PM ONWARDS</p>
+                <span class="venue-rule venue-rule-middle" aria-hidden="true"></span>
+                <h3 class="venue-name">SWARN FARMS LAWN 3</h3>
+                <p class="venue-address"> 9FH5+P73 GROUND-3, <br> SURESH SHARMAN NAGAR,<br>BAREILLY</p>
+                <p class="venue-map-label"><span aria-hidden="true">&#128205;</span> Open in Maps</p>
+            </div>
+
+            <a
+                class="map-link"
+                href="https://www.google.com/maps/place/Swarn+Farms+lawn+3+entrance/@28.3794501,79.4550478,17z/data=!3m1!4b1!4m6!3m5!1s0x39a00700690bed15:0xdca18c1e401ea9b1!8m2!3d28.3794501!4d79.4576227!16s%2Fg%2F11wr08svkk?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+                target="_self"
+                aria-label="Open Swarn Farms in Google Maps"
+            ></a>
+
+        </div>
+    </div>
+    
+    <div class="section section-other-events">
+        <div class="other-events-card">
+            <img
+                src="other-events.png"
+                alt="Other events details: Nyuter and Mehendi, and Haldi"
+                class="other-events-image"
+            >
+            <a
+                class="other-events-map-link"
+                href="https://www.google.com/maps/place/Hotel+NJ+Portico/@30.2960937,78.0525428,17z/data=!3m1!4b1!4m9!3m8!1s0x390929f40381b7c1:0x87394b5a8ca842ad!5m2!4m1!1i2!8m2!3d30.2960937!4d78.0551177!16s%2Fg%2F11p61pw6g3?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+                target="_self"
+                aria-label="Open Hotel NJ Portico in Google Maps"
+            ></a>
+        </div>
+    </div>
+
+    <!-- Photo Memories Carousel -->
+    <div class="section section-glimpse">
+
+        <span class="glimpse-eyebrow">
+            A Glimpse of Us
+        </span>
+
+        <h2 class="glimpse-title">
+            Our Beautiful<br>
+            Moments
+        </h2>
+
+        <div class="card-stage" id="cardStage"></div>
+
+        <p class="glimpse-caption">
+            A moment captured in time, forever in our hearts
+        </p>
+
+        <div class="glimpse-dots" id="glimpseDots"></div>
+
+    </div>
+
+
+    <!-- Final Image -->
+    <div class="section section-5">
+        <img src="4.png?v=html-overlay-1" alt="Wedding detail" class="responsive-image">
+
+        <div class="closing-text" aria-label="Closing invitation message">
+            <p class="closing-message">
+                We would be delighted<br>
+                to share this beautiful beginning with you
+            </p>
+            <p class="closing-message closing-message-second">
+                With love in our hearts,<br>
+                we await your gracious presence
+            </p>
+            <p class="closing-regards">Warm Regards,</p>
+            <p class="closing-signature">Sharma's</p>
+        </div>
+    </div>
+
+</body>
+</html>

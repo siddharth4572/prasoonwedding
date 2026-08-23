@@ -1,0 +1,1638 @@
+/* =========================================================
+   RESET & BASE
+   ========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #F4EDE1;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================================================
+   GENERIC SECTIONS / IMAGES
+   ========================================================= */
+.section {
+    width: 100%;
+    max-width: 100%;
+}
+
+.responsive-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.section-3 {
+    position: relative;
+    background: #f4efe4;
+}
+
+/* Text block sits centered in the empty middle band of 2.png,
+   between the top and bottom floral borders. */
+.invitation-text {
+    position: absolute;
+    top: 36%;
+    bottom: 22%;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.45rem, 1.1vw, 1rem);
+    text-align: center;
+    pointer-events: none;
+    color: #2d4a2d;
+    transform: translateX(-50%);
+    width: min(80vw, 800px);
+}
+
+.ganesha-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: min(90vw, 660px);
+    margin: 0;
+    gap: 0.15rem;
+    color: #2d4a2d;
+    font-family: "Noto Serif Devanagari", "Cormorant Garamond", serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.ganesha-line {
+    display: block;
+    font-size: clamp(1.1rem, 1.9vw, 1.7rem);
+    line-height: 1.5;
+    color: #2d4a2d;
+    text-shadow: 0 0 1px rgba(45, 74, 45, 0.2);
+}
+
+/* "|| श्री गणेशाय नमः ||" invocation line — coral/orange, matches reference */
+.ganesha-line-main {
+    font-size: clamp(1.35rem, 2.3vw, 2.1rem);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    color: #C1662E;
+    margin-bottom: 0.15rem;
+}
+
+.invitation-quote {
+    margin: 0;
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    font-size: clamp(1.15rem, 1.8vw, 1.95rem);
+    font-style: italic;
+    line-height: 1.35;
+    color: #2d4a2d;
+    font-weight: 500;
+}
+
+.invitation-couple {
+    margin: 0;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-size: clamp(1.15rem, 1.7vw, 1.8rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2d4a2d;
+}
+
+.invitation-subtext {
+    max-width: 680px;
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.15rem, 1.65vw, 1.75rem);
+    font-style: italic;
+    line-height: 1.4;
+    color: #2d4a2d;
+}
+
+.invitation-names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    gap: 0.25rem;
+    line-height: 0.9;
+    transform: translateX(-0.4rem);
+}
+
+.invitation-name {
+    font-family: "Alex Brush", "Playfair Display", cursive;
+    font-size: clamp(4.6rem, 7vw, 7.8rem);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #2d4a2d;
+}
+
+.invitation-name-first {
+    margin: 0;
+}
+
+.invitation-name-second {
+    margin: 0;
+    font-size: clamp(4.5rem, 7vw, 7.3rem);
+}
+
+.with-text {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.35rem, 2.1vw, 2.2rem);
+    font-style: italic;
+    color: crimson;
+    line-height: 1;
+    position: relative;
+    top: 2px;
+}
+
+/* "S/O MRS. SUMAN & DR. HARISH CHANDRA SHARMA" — rose/pink, matches reference */
+
+/* "FOR THEIR WEDDING CEREMONY" — coral/orange, matches reference */
+.invitation-parentage {
+    margin: 0;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-size: clamp(0.55rem, 1.2vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #2d4a2d;
+    white-space: nowrap;
+    position: relative;
+    transform: translateY(-30px);
+}
+
+.invitation-title {
+    margin: 0;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-size: clamp(0.65rem, 1.1vw, 1.1rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #C1662E;
+    white-space: nowrap;
+    position: relative;
+    transform: translateY(-30px);
+}
+/* =========================================================
+   ENVELOPE INTRO OVERLAY
+   ========================================================= */
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4ede1;
+    padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+    transition: opacity .6s ease, visibility .6s ease;
+}
+
+.intro-overlay.hide {
+    animation: introFadeOut .7s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes introFadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.envelope-button {
+    width: 100%;
+    max-width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 3vh, 1.25rem);
+    cursor: pointer;
+    animation: envelopeFloat 2.5s ease-in-out infinite;
+    transition: transform .25s ease, opacity .35s ease;
+}
+
+.envelope-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes envelopeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.envelope-image {
+    width: min(86vw, 320px);
+    max-height: 70dvh;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, .16));
+}
+
+.tap-text {
+    margin: 0;
+    max-width: 90vw;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(0.65rem, 2.8vw, 0.85rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b4d3d;
+    text-decoration: underline;
+    text-decoration-color: #37491d;
+    text-underline-offset: 4px;
+}
+
+/* Intro video plays full-screen inside the overlay once tapped */
+.intro-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.tap-play-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.6rem;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #3D2B1F;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+.tap-play-btn.hidden {
+    display: none !important;
+}
+
+/* =========================================================
+   SECTION 2 — SCRATCH CARD REVEAL
+   ========================================================= */
+.section-2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: auto;
+    gap: clamp(1rem, 4vw, 1.5rem);
+    padding: clamp(2rem, 7vw, 4rem) 0.75rem 2.5rem;
+    background: #f4efe4;
+}
+
+.section-2 h2 {
+    margin: 0;
+    color: #3D521E;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.floral-decorations {
+    display: none;
+}
+
+.scratch-row {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.4rem, 2.5vw, 1rem);
+    width: min(100%, 25rem);
+    margin: 0 auto;
+    padding-inline: clamp(0rem, 2vw, 0.5rem);
+}
+
+.scratch-card {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 0.74;
+    background: #FBF6E9;
+    border-radius: 0.75rem;
+    border: 0.5px solid rgba(184, 150, 90, 0.3);
+    box-shadow: 0 6px 16px rgba(141, 110, 99, 0.18);
+    overflow: hidden;
+    user-select: none;
+}
+
+.scratch-card-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.3rem, 2vw, 0.5rem);
+    text-align: center;
+    background: #FFFDF7;
+    opacity: 0;
+    transition: opacity 700ms ease-in-out;
+}
+
+.scratch-card.revealed .scratch-card-face {
+    opacity: 1;
+}
+
+.scratch-card-inset {
+    position: absolute;
+    border-radius: 0.5rem;
+    pointer-events: none;
+}
+
+.scratch-card-inset-1 {
+    inset: 6px;
+    border: 0.5px solid rgba(184, 150, 90, 0.1);
+}
+
+.scratch-card-inset-2 {
+    inset: 8px;
+    border: 0.5px solid rgba(184, 150, 90, 0.2);
+}
+
+.scratch-card-label {
+    font-family: "Montserrat", sans-serif;
+    color: #8F7240;
+    font-size: clamp(7px, 1.8vw, 8px);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.25rem;
+}
+
+.scratch-card-value {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    color: #3D2B1F;
+    font-size: clamp(0.95rem, 6vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.scratch-card-subvalue {
+    font-family: "Montserrat", sans-serif;
+    color: rgba(61, 43, 31, 0.7);
+    font-size: clamp(6px, 1.6vw, 7px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.35rem;
+    line-height: 1;
+}
+
+.scratch-card-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.scratch-card-canvas.scratching {
+    cursor: grabbing;
+}
+
+.scratch-card-canvas.revealed {
+    opacity: 0;
+    transform: scale(1.1);
+    pointer-events: none;
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
+}
+
+.scratch-status {
+    position: relative;
+    z-index: 2;
+    min-height: 3rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding-inline: 0.5rem;
+}
+
+.scratch-instructions,
+.scratch-success {
+    transition: opacity 400ms ease-in-out;
+}
+
+.scratch-instructions {
+    margin: 0;
+    max-width: 280px;
+    font-family: "Montserrat", sans-serif;
+    color: rgba(61, 43, 31, 0.6);
+    font-size: clamp(9px, 2.2vw, 10px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+}
+
+.scratch-instructions[hidden],
+.scratch-success[hidden] {
+    display: none;
+}
+
+.scratch-success h3 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    color: #B5952F;
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.scratch-success p {
+    margin: 0.5rem 0 0;
+    font-family: "Montserrat", sans-serif;
+    color: rgba(61, 43, 31, 0.9);
+    font-size: clamp(8px, 2vw, 9px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   SECTION — WEDDING COUNTDOWN
+   ========================================================= */
+.section-countdown {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #f4efe4;
+    padding: clamp(2rem, 7vw, 3.5rem) 1rem;
+}
+
+.countdown-card {
+    width: 100%;
+    max-width: 960px;
+    text-align: center;
+    background: #FBF6E9;
+    border: 1px solid rgba(184, 150, 90, 0.3);
+    border-radius: 1.5rem;
+    box-shadow: 0 14px 32px rgba(141, 110, 99, 0.15);
+    padding: clamp(2rem, 6vw, 3rem) clamp(1rem, 5vw, 3rem);
+}
+
+.countdown-eyebrow {
+    margin: 0 0 clamp(1.75rem, 6vw, 2.75rem);
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(10px, 2.4vw, 13px);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #B5952F;
+}
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.6rem, 3vw, 1.5rem);
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.65rem, 2.5vw, 1rem);
+}
+
+.countdown-value {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #FFFDF7 0%, #F7EFDD 100%);
+    border: 0.5px solid rgba(184, 150, 90, 0.35);
+    border-radius: 0.85rem;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 6vw, 2.75rem);
+    color: #3D2B1F;
+    box-shadow: 0 10px 20px rgba(141, 110, 99, 0.18);
+}
+
+.countdown-label {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(8px, 2.2vw, 11px);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(61, 43, 31, 0.65);
+}
+
+.countdown-divider {
+    margin-top: clamp(1.75rem, 6vw, 2.75rem);
+    height: 1px;
+    background: rgba(184, 150, 90, 0.3);
+}
+
+/* =========================================================
+   SECTION — OTHER EVENTS IMAGE
+   ========================================================= */
+.section-other-events {
+    width: 100%;
+    background: #f4efe4;
+    padding: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+}
+
+.other-events-card {
+    position: relative;
+    width: min(100%, 760px);
+    margin: 0 auto;
+}
+
+.other-events-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.8rem;
+}
+
+.other-events-map-link {
+    position: absolute;
+    top: 81.8%;
+    left: 33%;
+    z-index: 5;
+    width: 34%;
+    height: 8.2%;
+    display: block;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* =========================================================
+   SECTION — PHOTO MEMORIES CAROUSEL
+   ========================================================= */
+.section-glimpse {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: clamp(2.5rem, 8vw, 4.5rem) 1rem clamp(2rem, 6vw, 3rem);
+    background: #f4efe4;
+    text-align: center;
+    overflow: hidden;
+}
+
+.glimpse-eyebrow {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(9px, 2.2vw, 10px);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #8F7240;
+    margin-bottom: 0.5rem;
+}
+
+.glimpse-title {
+    margin: 0 0 clamp(1.5rem, 5vw, 2.25rem);
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.1;
+    font-size: clamp(1.9rem, 8vw, 3rem);
+    color: #3D521E;
+}
+
+.card-stage {
+    position: relative;
+    width: min(78vw, 260px);
+    height: min(102vw, 340px);
+    margin: 0 auto;
+}
+
+.polaroid {
+    position: absolute;
+    inset: 0;
+    background: #FFFDF7;
+    border: 0.5px solid rgba(184, 150, 90, 0.35);
+    border-radius: 0.9rem;
+    padding: 10px;
+    box-shadow: 0 16px 32px -10px rgba(61, 43, 31, 0.28);
+    opacity: 0;
+    transform: rotate(-6deg) scale(0.96);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    pointer-events: none;
+}
+
+.polaroid.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.6rem;
+    display: block;
+}
+
+.glimpse-caption {
+    margin: clamp(1.1rem, 4vw, 1.5rem) 0 0;
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+    font-size: clamp(11px, 2.6vw, 13px);
+    letter-spacing: 0.3px;
+    color: rgba(61, 43, 31, 0.7);
+}
+
+.glimpse-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.glimpse-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #B5952F;
+    opacity: 0.35;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.glimpse-dots span.active {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+@media (max-width: 600px) {
+    .section-other-events {
+        padding: 1.1rem 0.7rem;
+    }
+
+    .other-events-card {
+        width: 100%;
+    }
+
+    .other-events-image {
+        border-radius: 0.55rem;
+    }
+
+    .other-events-map-link {
+        top: 81.4%;
+        left: 31.5%;
+        width: 37%;
+        height: 9%;
+    }
+
+    .card-stage {
+        width: 72vw;
+        height: 94vw;
+        max-height: 320px;
+    }
+}
+
+/* =========================================================
+   CONFETTI & FALLING FLOWERS
+   ========================================================= */
+.confetti-piece {
+    position: fixed;
+    top: -20px;
+    left: var(--left);
+    z-index: 100;
+    width: var(--size);
+    height: calc(var(--size) * 1.6);
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 2px;
+    animation: pink-confetti-fall 2.4s cubic-bezier(0.2, 0.75, 0.3, 1) var(--delay) forwards;
+}
+
+@keyframes pink-confetti-fall {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, -10vh, 0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(var(--drift), 115vh, 0) rotate(var(--rotation));
+    }
+}
+
+.falling-flowers {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.falling-flower {
+    position: absolute;
+    top: -2rem;
+    left: var(--left);
+    display: block;
+    font-size: var(--size);
+    line-height: 1;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 3px rgba(100, 20, 35, 0.18));
+    animation: flower-fall var(--duration) linear var(--delay) infinite;
+}
+
+.flower-red {
+    filter: hue-rotate(-12deg) saturate(1.45) drop-shadow(0 2px 3px rgba(100, 20, 35, 0.18));
+}
+
+.flower-pink {
+    filter: hue-rotate(315deg) saturate(1.1) drop-shadow(0 2px 3px rgba(100, 20, 35, 0.18));
+}
+
+@keyframes flower-fall {
+    0% {
+        transform: translate3d(0, -8vh, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(var(--drift), 50vh, 0) rotate(calc(var(--rotation) / 2));
+    }
+    100% {
+        transform: translate3d(calc(var(--drift) * -0.6), 112vh, 0) rotate(var(--rotation));
+    }
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* Tablets and small laptops */
+@media (max-width: 768px) {
+    .wedding-video {
+        height: 100%;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    .intro-overlay {
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 5vh 0 2vh;
+    }
+
+    .envelope-button {
+        min-height: auto;
+        justify-content: flex-start;
+        gap: clamp(0.9rem, 3vh, 1.4rem);
+    }
+
+    .envelope-image {
+        width: min(86vw, 430px);
+        max-width: 86vw;
+        max-height: none;
+        height: auto;
+    }
+
+    .tap-text {
+        font-size: clamp(0.65rem, 3vw, 0.85rem);
+        letter-spacing: clamp(1.5px, 0.7vw, 2px);
+    }
+    .intro-video {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        max-width: 100vw;
+    }
+
+    .section-2 h2 {
+        font-size: clamp(1.6rem, 9vw, 2.5rem);
+    }
+
+    .scratch-row {
+        max-width: 24rem;
+    }
+
+    .scratch-card {
+        aspect-ratio: 0.78;
+    }
+
+    .scratch-card-value {
+        font-size: clamp(0.9rem, 6vw, 1.3rem);
+    }
+
+    .scratch-card-label,
+    .scratch-card-subvalue {
+        letter-spacing: 0.08em;
+    }
+
+    .invitation-text {
+        width: min(88vw, 480px);
+        gap: clamp(0.22rem, 1.3vw, 0.45rem);
+    }
+
+    .ganesha-line-main {
+        font-size: clamp(0.85rem, 3.4vw, 1.05rem);
+    }
+
+    .ganesha-line {
+        font-size: clamp(0.65rem, 2.7vw, 0.8rem);
+    }
+
+    .invitation-quote {
+        font-size: clamp(0.65rem, 2.6vw, 0.82rem);
+    }
+
+    .invitation-couple {
+        font-size: clamp(0.68rem, 2.6vw, 0.82rem);
+    }
+
+    .invitation-subtext {
+        font-size: clamp(0.6rem, 2.4vw, 0.75rem);
+    }
+
+    .invitation-name {
+        font-size: clamp(2.4rem, 13vw, 3.4rem);
+    }
+
+    .invitation-name-second {
+        font-size: clamp(2.35rem, 13vw, 3.3rem);
+    }
+
+    .with-text {
+        font-size: clamp(0.72rem, 3vw, 0.95rem);
+    }
+
+    .invitation-parentage {
+        font-size: clamp(0.48rem, 2.1vw, 0.62rem);
+    }
+
+    .invitation-title {
+        font-size: clamp(0.58rem, 2.5vw, 0.75rem);
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .scratch-row {
+        gap: 0.35rem;
+    }
+
+    .scratch-card-inset-1 {
+        inset: 4px;
+    }
+
+    .scratch-card-inset-2 {
+        inset: 6px;
+    }
+}
+
+/* Final mobile placement for the closing-card signature. */
+@media (max-width: 600px) {
+    .closing-signature {
+        top: 70%;
+    }
+
+    .venue-date {
+        top: 42.8%;
+    }
+
+    .venue-time {
+        top: 46.8%;
+    }
+}
+
+/* Landscape phones (short viewport height) */
+@media (max-height: 480px) and (orientation: landscape) {
+    .envelope-image {
+        max-height: 50dvh;
+    }
+
+    .intro-overlay {
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+} 
+
+
+
+html,
+body {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+video,
+canvas {
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    .intro-overlay,
+    .intro-video {
+        width: 100vw;
+        max-width: 100vw;
+        height: 100dvh;
+        max-height: 100dvh;
+    }
+
+    .intro-video {
+        object-fit: cover;
+    }
+
+    .section-1,
+    .section-3,
+    .section-4,
+    .section-5 {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .responsive-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .section-2 {
+        width: 100%;
+        min-height: auto;
+        padding: 2.5rem 0.75rem;
+    }
+
+    .section-2 h2 {
+        max-width: 95vw;
+        font-size: clamp(1.75rem, 9vw, 2.5rem);
+    }
+
+    .scratch-row {
+        width: 100%;
+        max-width: 24rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(0.35rem, 2.5vw, 0.75rem);
+    }
+
+    .scratch-card {
+        width: 100%;
+        min-width: 0;
+        aspect-ratio: 0.76;
+    }
+
+    .scratch-card-face {
+        padding: 0.3rem;
+    }
+
+    .scratch-card-value {
+        font-size: clamp(0.9rem, 5.5vw, 1.3rem);
+    }
+
+    .scratch-status {
+        width: 100%;
+        height: auto;
+        min-height: 3rem;
+        padding: 0 0.5rem;
+    }
+}
+
+.section-4 > a {
+    display: block;
+}
+
+
+.map-card {
+    position: relative;
+    width: 100%;
+}
+
+/* Ceremony wording is HTML over the 3.png artwork, so it remains crisp and
+   selectable at every screen size. The percentage positions match the image's
+   original 944 × 1127 composition. */
+.venue-text {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    color: #37481e;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    text-align: center;
+    pointer-events: none;
+}
+
+.venue-text > * {
+    position: absolute;
+    left: 50%;
+    margin: 0;
+    transform: translateX(-50%);
+}
+
+.venue-title {
+    top: 25.6%;
+    width: 72%;
+    font-size: clamp(2rem, 7.1vw, 4.1rem);
+    font-weight: 500;
+    letter-spacing: 0.055em;
+    line-height: 1.08;
+}
+
+.venue-rule {
+    width: 9%;
+    height: 1px;
+    background: rgba(220, 163, 164, 0.8);
+}
+
+.venue-rule-top { top: 41.4%; }
+.venue-rule-middle { top: 52.7%; width: 4.8%; }
+
+.venue-date {
+    top: 42.2%;
+    width: 88%;
+    font-size: clamp(0.7rem, 1.9vw, 1.35rem);
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.venue-time {
+    top: 46.3%;
+    width: 70%;
+    font-size: clamp(0.6rem, 1.7vw, 1.25rem);
+    font-weight: 500;
+    letter-spacing: 0.035em;
+}
+
+.venue-name {
+    top: 54.6%;
+    width: 85%;
+    font-size: clamp(1.2rem, 3.1vw, 2.05rem);
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    line-height: 1.15;
+}
+
+.venue-address {
+    top: 61.1%;
+    width: 88%;
+    font-size: clamp(0.78rem, 1.9vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.42;
+}
+
+.venue-note {
+    top: 77%;
+    width: 76%;
+    font-size: clamp(0.68rem, 1.6vw, 1.05rem);
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.venue-map-label {
+    top: 72.5%;
+    width: 40%;
+    font-size: clamp(0.95rem, 2.25vw, 1.5rem);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.venue-map-label span {
+    color: #ef4338;
+    font-family: sans-serif;
+    font-size: 1.12em;
+    vertical-align: -0.06em;
+}
+
+/* Closing message over the 4.png floral card. */
+.section-5 {
+    position: relative;
+}
+
+.closing-text {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    color: #4a6129;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    pointer-events: none;
+}
+
+.closing-text p {
+    position: absolute;
+    left: 50%;
+    width: 88%;
+    margin: 0;
+    transform: translateX(-50%);
+}
+
+.closing-message {
+    top: 35.8%;
+    font-size: clamp(1.15rem, 3.05vw, 2rem);
+    line-height: 1.65;
+}
+
+.closing-message-second {
+    top: 49.2%;
+}
+
+.closing-regards {
+    top: 65.1%;
+    font-size: clamp(0.95rem, 2.15vw, 1.4rem);
+    line-height: 1.2;
+}
+
+.closing-signature {
+    top: 68.4%;
+    font-family: "Alex Brush", "Cormorant Garamond", cursive;
+    font-size: clamp(3.1rem, 7.3vw, 4.9rem);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.map-link {
+    position: absolute;
+    top: 72.5%;
+    left: 35.5%;
+    z-index: 5;
+    width: 25%;
+    height: 5%;
+    display: block;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+@media (max-width: 600px) {
+    .venue-title {
+        font-size: clamp(1.65rem, 7.1vw, 2.65rem);
+    }
+
+    .venue-date {
+        width: 92%;
+        font-size: clamp(0.68rem, 2.9vw, 0.95rem);
+    }
+
+    .venue-time {
+        font-size: clamp(0.58rem, 2.5vw, 0.85rem);
+    }
+
+    .venue-name {
+        width: 90%;
+        font-size: clamp(1rem, 4.5vw, 1.45rem);
+    }
+
+    .venue-address {
+        width: 92%;
+        font-size: clamp(0.68rem, 2.8vw, 0.92rem);
+    }
+
+    .venue-note {
+        top: 77%;
+        width: 76%;
+        font-size: clamp(0.6rem, 2.4vw, 0.8rem);
+        line-height: 1.15;
+    }
+
+    .venue-map-label {
+        top: 72.5%;
+        width: 55%;
+        font-size: clamp(0.78rem, 3.2vw, 1.05rem);
+    }
+
+    .map-link {
+        top: 72.5%;
+        left: 35%;
+        width: 30%;
+        height: 5%;
+    }
+}
+
+
+.music-button {
+    position: fixed;
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 1100;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    background: #3D521E;
+    font: 600 0.8rem Montserrat, sans-serif;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   REFERENCE-MATCHED WEDDING INVITATION — SECTION 3
+   The 2.png artwork is 1038 x 1515.
+   Text is positioned as a composition over that artwork,
+   rather than being vertically centered as a flex column.
+   ========================================================= */
+
+.section-3 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #f9efe3;
+}
+
+/* The image defines the section's exact height/aspect ratio. */
+.section-3 > .responsive-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+}
+
+/* Full-size overlay aligned to the 2.png canvas. */
+.section-3 .invitation-text {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 3;
+
+    display: block;
+    transform: none;
+
+    text-align: center;
+    color: #2a4c10;
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   Ganesha / Sanskrit
+   --------------------------------------------------------- */
+
+.section-3 .ganesha-text {
+    position: absolute;
+    top: 32.75%;
+    left: 50%;
+    width: 90%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 0.25vw;
+    margin: 0;
+
+    color: #2a4c10;
+    font-family: "Noto Serif Devanagari", serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.section-3 .ganesha-line-main {
+    margin: 0 0 0.15vw;
+    color: #2a4c10;
+
+    font-family: "Noto Serif Devanagari", serif;
+    font-size: clamp(15px, 2.45vw, 25.5px);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.015em;
+}
+
+.section-3 .ganesha-line {
+    color: #2a4c10;
+
+    font-family: "Noto Serif Devanagari", serif;
+    font-size: clamp(12px, 1.75vw, 18.5px);
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0;
+}
+
+/* ---------------------------------------------------------
+   Quote
+   --------------------------------------------------------- */
+
+.section-3 .invitation-quote {
+    position: absolute;
+    top: 42.0%;
+    left: 50%;
+    width: 92%;
+    transform: translateX(-50%);
+
+    margin: 0;
+
+    color: #2a4c10;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(14px, 1.85vw, 19.5px);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.42;
+    text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Parents
+   --------------------------------------------------------- */
+
+.section-3 .invitation-couple {
+    position: absolute;
+    top: 47.45%;
+    left: 50%;
+    width: 94%;
+    transform: translateX(-50%);
+
+    margin: 0;
+
+    color: #2a4c10;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(18px, 2.55vw, 26.5px);
+    font-weight: 700;
+    letter-spacing: 0.045em;
+    line-height: 1.15;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.section-3 .invitation-subtext {
+    position: absolute;
+    top: 51.0%;
+    left: 50%;
+    width: 94%;
+    transform: translateX(-50%);
+
+    margin: 0;
+
+    color: #2a4c10;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(13px, 1.75vw, 18.5px);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   Bride + Groom names
+   --------------------------------------------------------- */
+
+.section-3 .invitation-names {
+    position: absolute;
+    top: 52.55%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 0;
+    margin: 0;
+
+    line-height: 0.85;
+    text-align: center;
+}
+
+.section-3 .invitation-name {
+    margin: 0;
+
+    color: #2a4c10;
+    font-family: "Alex Brush", "Playfair Display", cursive;
+    font-size: clamp(48px, 8.5vw, 88px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: 0;
+}
+
+.section-3 .invitation-name-first {
+    margin: 0;
+    position: relative;
+    top: 10px;
+}
+
+.section-3 .with-text {
+    margin: 0.75vw 0 0.25vw;
+
+    color: #e16f83;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(14px, 1.75vw, 18px);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1;
+    position: static;
+}
+
+.section-3 .invitation-name-second {
+    /* Add breathing room after "with" and place Juhi slightly lower. */
+    margin: 0.65vw 0 0;
+    font-size: clamp(48px, 8.45vw, 87px);
+    line-height: 0.88;
+}
+
+/* ---------------------------------------------------------
+   Groom parentage
+   --------------------------------------------------------- */
+
+.section-3 .invitation-parentage {
+    position: absolute;
+    top: 70.55%;
+    left: 50%;
+    width: 96%;
+    transform: translateX(-50%);
+
+    margin: 0;
+
+    color: #2a4c10;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(16px, 2.55vw, 26.5px);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    line-height: 1.15;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   Wedding ceremony title
+   --------------------------------------------------------- */
+
+.section-3 .invitation-title {
+    position: absolute;
+    top: 75.25%;
+    left: 50%;
+    width: 92%;
+    transform: translateX(-50%);
+
+    margin: 0;
+
+    color: #e16f83;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(17px, 2.45vw, 25.5px);
+    font-weight: 700;
+    letter-spacing: 0.095em;
+    line-height: 1.28;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   Mobile tuning
+   These values preserve the same proportions as 2.png.
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .section-3 .ganesha-text {
+        top: 32.65%;
+        width: 94%;
+        gap: 0.35vw;
+    }
+
+    .section-3 .ganesha-line-main {
+        font-size: clamp(13px, 2.55vw, 16px);
+        line-height: 1.25;
+    }
+
+    .section-3 .ganesha-line {
+        font-size: clamp(10px, 1.9vw, 13px);
+        line-height: 1.45;
+    }
+
+    .section-3 .invitation-quote {
+        top: 41.9%;
+        width: 92%;
+        font-size: clamp(10px, 1.95vw, 14px);
+        line-height: 1.42;
+    }
+
+    .section-3 .invitation-couple {
+        top: 47.35%;
+        width: 96%;
+        font-size: clamp(12px, 2.55vw, 15px);
+        letter-spacing: 0.04em;
+    }
+
+    .section-3 .invitation-subtext {
+        top: 50.95%;
+        width: 96%;
+        font-size: clamp(9px, 1.8vw, 12px);
+    }
+
+    .section-3 .invitation-names {
+        top: 52.55%;
+    }
+
+    .section-3 .invitation-name {
+        font-size: clamp(43px, 8.6vw, 60px);
+        line-height: 0.88;
+    }
+
+    .section-3 .with-text {
+        margin: 1vw 0 0.35vw;
+        font-size: clamp(11px, 1.9vw, 14px);
+    }
+
+    .section-3 .invitation-name-second {
+        margin-top: 1vw;
+        font-size: clamp(42px, 8.5vw, 59px);
+    }
+
+    .section-3 .invitation-parentage {
+        top: 70.55%;
+        width: 97%;
+        font-size: clamp(9px, 2.5vw, 13.5px);
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+    }
+
+    .section-3 .invitation-title {
+        top: 75.15%;
+        width: 95%;
+        font-size: clamp(10px, 2.45vw, 13px);
+        letter-spacing: 0.08em;
+        line-height: 1.25;
+        white-space: nowrap;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+
+    .section-3 .invitation-parentage {
+        font-size: clamp(8px, 2.45vw, 11px);
+    }
+
+    .section-3 .invitation-title {
+        font-size: clamp(9px, 2.35vw, 11px);
+    }
+}
+
+/* Keep the closing signature clear of the regards line on phones. */
+@media (max-width: 600px) {
+    .closing-regards {
+        top: 64.5%;
+    }
+
+    .closing-signature {
+        top: 72%;
+    }
+}
